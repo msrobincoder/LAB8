@@ -1,8 +1,8 @@
 /*
     CMSY 172 - Lab 8 
     
-    Author: 
-    Date: 
+    Author: Monique Robinson	
+    Date: November 2, 2016
     
     Determine if a number was input by the user in the web form
     and display a message to the web page stating whether a valid 
@@ -39,11 +39,19 @@
 
 
 */
+
+
 function getValue() {
   /* 
     Use this function to manage all processing including function calls 
     to the validInput function, and the outputMessage function.
   */
+  
+  //ask the user to input value.
+      var x = document.getElementById("valueToCheck").value;
+	   // console.log(x); // gets the value and prints it out on the log
+      outputMessage(x);
+  console.log("get value was called");
 }
 
 /* Check to make sure one or more characters was input.
@@ -54,5 +62,8 @@ function validInput(value) {
 
 //Display a message to the document stating whether or not a valid number was input.
 function outputMessage(displayMessage) {
-  
+  var testOutPutMessage = "This is the output.";
+  document.getElementById("output").innerHTML = displayMessage;
 }
+
+//window.onload = outputMessage;
