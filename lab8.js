@@ -1,8 +1,8 @@
 /*
     CMSY 172 - Lab 8 
     
-    Author: Monique Robinson	
-    Date: November 2, 2016
+    Author: 
+    Date: 
     
     Determine if a number was input by the user in the web form
     and display a message to the web page stating whether a valid 
@@ -39,31 +39,47 @@
 
 
 */
-
-
 function getValue() {
   /* 
     Use this function to manage all processing including function calls 
     to the validInput function, and the outputMessage function.
   */
-  
-  //ask the user to input value.
-      var x = document.getElementById("valueToCheck").value;
-	   // console.log(x); // gets the value and prints it out on the log
-      outputMessage(x);
-  console.log("get value was called");
-}
+    var userInput = document.getElementById("valueToCheck").value;
+   
+
+ //check validity of userInput by calling function validInput
+    var checkValidity = validInput(userInput);
+      if (checkValidity == true) {
+    	  //document.getElementById("valueToCheck").innerHTML = userInput;
+    	  document.write(userInput);
+         outputMessage("Valid input entered." + userInput);
+      }
+      else if (isNaN(userInput)){
+          outputMessage("Please enter a valid numeric input.");
+      }
+      else if (userInput.length == 0) {
+    	  outputMessage("Error: Unable to verify input!");
+      }
+      //else if (userInput)
+  }
+  //outputMessage(userInput);
+
 
 /* Check to make sure one or more characters was input.
    Return true or false to the calling function indicating valid input. */
 function validInput(value) {
-  
+    //if the input is a number then return true; otherwise return false.
+    
+   if (Number(value)){
+       return true;
+   }
+   else {
+      console.log("returning false from valid input");
+     return false;
+   }
 }
 
 //Display a message to the document stating whether or not a valid number was input.
 function outputMessage(displayMessage) {
-  var testOutPutMessage = "This is the output.";
-  document.getElementById("output").innerHTML = displayMessage;
+   document.write(displayMessage);
 }
-
-//window.onload = outputMessage;
